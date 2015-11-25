@@ -33,8 +33,12 @@
                 <li><a href="{{ route('auth.logout') }}">Sign Out</a></li>
               </ul>
             </div>
-            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-              <h1 class="page-header">Dashboard</h1>
+                 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                              <h1 class="page-header">Dashboard</h1>
+                 
+                              <h2 class="sub-header">Projects</h2>
+                              <a class="btn btn-info" href="{{ route('projects.create') }}">New Project</a>
+                 </div>
             </div>
           </div>
         </div>

@@ -45,3 +45,5 @@ Route::get('/logout', [
     'uses' => 'AuthController@logOut',
     'as'   => 'auth.logout'
 ]);
+
+Route::resource('projects', 'ProjectController');
