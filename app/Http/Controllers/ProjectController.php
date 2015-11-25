@@ -2,10 +2,12 @@
 
 namespace Laraprego\Http\Controllers;
 
+use Laraprego\Project;
 use Illuminate\Http\Request;
 
 use Laraprego\Http\Requests;
 use Laraprego\Http\Controllers\Controller;
+
 
 class ProjectController extends Controller
 {
@@ -14,20 +16,21 @@ class ProjectController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
-    }
+     public function index()
+     {
+         $projects = Project::all();
+         return view('projects.index')->withProject($projects);
+     }
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
+     public function create()
+     {
+            return view('projects.new');
+     }
 
     /**
      * Store a newly created resource in storage.
