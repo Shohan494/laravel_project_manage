@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width">
     <title>Prego - Project Management App</title>
     <meta name="description" content="Prego is a project management app built for learning purposes">
+    <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
  
     <!-- Typekit Fonts -->
     <script src="//use.typekit.net/udt8boc.js"></script>

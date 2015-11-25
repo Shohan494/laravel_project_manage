@@ -40,3 +40,8 @@ Route::post('/auth/signin', [
     'uses' => 'AuthController@postLogIn',
     'middleware' => ['guest']
 ]);
+
+Route::get('/logout', [
+    'uses' => 'AuthController@logOut',
+    'as'   => 'auth.logout'
+]);
