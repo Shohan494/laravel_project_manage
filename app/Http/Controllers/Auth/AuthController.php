@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace Laraprego\Http\Controllers\Auth;
 
-use App\User;
+use Laraprego\User;
 use Validator;
-use App\Http\Controllers\Controller;
+use Laraprego\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
