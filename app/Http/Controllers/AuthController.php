@@ -1,11 +1,10 @@
 <?php
-
+ 
 namespace Laraprego\Http\Controllers;
-
+ 
+use Auth;
+use Laraprego\User;
 use Illuminate\Http\Request;
-
-use Laraprego\Http\Requests;
-use Laraprego\Http\Controllers\Controller;
 
 class AuthController extends Controller
 {
@@ -51,5 +50,6 @@ class AuthController extends Controller
         }
  
         return redirect()->route('index')->with('info', 'You are now signed in');
- 
+    }
+
 }
