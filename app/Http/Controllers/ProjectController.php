@@ -3,6 +3,7 @@
 namespace Laraprego\Http\Controllers;
     
 use Auth;
+use Laraprego\Task;
 use Laraprego\Project;
 use Illuminate\Http\Request;
 
@@ -66,11 +67,12 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
- public function show($id)
-     {
-            $project = Project::find($id);
-            return view('projects.show')->withProject($project);
-     }
+    public function show($id)
+    {
+        $project = Project::find($id);
+        $tasks = $this->getTasks($id);
+        return view('projects.show')->withProject($project)->withTasks($tasks);
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -119,6 +121,17 @@ public function destroy($id)
         $project->delete();
  
         return redirect()->route('projects.index')->with('info', 'Project deleted successfully');
+    }
+
+    /**
+     * Get all the tasks for a Project
+     * @param  [type] $id [description]
+     * @return [type]     [description]
+     */
+    public function getTasks($id)
+    {
+        $tasks =  Task::project($id)->get();
+        return $tasks;
     }
 
 }
