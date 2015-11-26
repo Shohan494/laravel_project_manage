@@ -47,3 +47,9 @@ Route::get('/logout', [
 ]);
 
 Route::resource('projects', 'ProjectController');
+
+# Task routes
+Route::post('projects/{projects}/tasks', [
+    'uses' => 'ProjectTasksController@postNewTask',
+    'as' => 'projects.tasks.create'
+]);
