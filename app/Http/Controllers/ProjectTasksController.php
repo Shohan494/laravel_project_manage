@@ -2,7 +2,8 @@
 namespace Laraprego\Http\Controllers;
  
 use Illuminate\Http\Request;
- 
+
+use DB;
 use Auth;
 use Laraprego\Task;
 use Laraprego\Http\Requests;
@@ -41,5 +42,42 @@ class ProjectTasksController extends Controller
                       ->where('id', $taskId)
                       ->first();
         return view('tasks.edit')->withTask($task)->with('projectId', $projectId);
+    }
+
+       /**
+     * Update One Project Task
+     * @param  Request $request   [description]
+     * @param  [type]  $projectId [description]
+     * @param  [type]  $taskId    [description]
+     * @return [type]             [description]
+     */
+    public function updateOneProjectTask(Request $request, $projectId, $taskId)
+    {
+        $this->validate($request, [
+            'task_name'  => 'required|min:3',
+        ]);
+ 
+        DB::table('tasks')
+            ->where('project_id', $projectId)
+            ->where('id', $taskId)
+            ->update(['task_name' => $request->input('task_name')]);
+ 
+        return redirect()->back()->with('info','Your Task has been updated successfully');
+    }
+
+       /**
+     * Delete One Project Task
+     * @param  [type] $projectId [description]
+     * @param  [type] $taskId    [description]
+     * @return [type]            [description]
+     */
+    public function deleteOneProjectTask($projectId, $taskId)
+    {
+        DB::table('tasks')
+            ->where('project_id', $projectId)
+            ->where('id', $taskId)
+            ->delete();
+ 
+        return redirect()->route('projects.show')->with('info', 'Task deleted successfully');
     }
 }

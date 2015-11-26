@@ -8,11 +8,11 @@
                 <div>
                     <div><i class="fa fa-check-square-o"></i> <span>{{ $task->task_name }}</span></div>
                     <a href={{url("/projects/$project->id/tasks/$task->id/edit")}}>Edit</a>
-                    <button class="btn btn-danger delete pull-right"
-                      data-action="#"
-                      data-token="{{csrf_token()}}">
-                    <i class="fa fa-trash-o"></i>Delete
-                    </button>
+                     <button class="btn btn-danger delete pull-right"
+                             data-action={{url("/projects/$project->id/tasks/$task->id")}}
+                             data-token="{{csrf_token()}}">
+                            <i class="fa fa-trash-o"></i>Delete
+                     </button>
                 </div>
                 <hr/>
            @endforeach
