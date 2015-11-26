@@ -5,8 +5,6 @@
 @include('layouts.partials.sidebar')
  <div class="col-sm-9 col-md-10 main">
     <h1 class="page-header"> Edit Project</h1>
-
-    @include('layouts.partials.alerts')
     <div class="col-lg-6">
         <form class="form-vertical" role="form" method="post" action="{{ route('projects.update', $project->id) }}">
             <div class="form-group{{ $errors->has('project_status') ? ' has-error' : '' }}">
