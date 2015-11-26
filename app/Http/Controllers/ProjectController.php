@@ -71,10 +71,12 @@ class ProjectController extends Controller
      */
     public function show($id)
     {
-        $project = Project::find($id);
-        $tasks = $this->getTasks($id);
-        $files = $this->getFiles($id);
-        return view('projects.show')->withProject($project)->withTasks($tasks)->withFiles($files);
+        $project  = Project::find($id);
+        $tasks    = $this->getTasks($id);
+        $files    = $this->getFiles($id);
+        $comments = $this->getComments($id);
+ 
+        return view('projects.show')->withProject($project)->withTasks($tasks)->withFiles($files)->withComments($comments);
     }
 
     /**
