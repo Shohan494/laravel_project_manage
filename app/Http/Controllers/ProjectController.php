@@ -19,7 +19,7 @@ class ProjectController extends Controller
      */
      public function index()
      {
-         $projects = Project::all();
+         $projects = Project::personal()->get();
          return view('projects.index')->withProject($projects);
      }
 
@@ -66,10 +66,11 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
-    }
+ public function show($id)
+     {
+            $project = Project::find($id);
+            return view('projects.show')->withProject($project);
+     }
 
     /**
      * Show the form for editing the specified resource.
