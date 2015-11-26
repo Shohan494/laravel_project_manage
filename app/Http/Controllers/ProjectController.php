@@ -3,7 +3,7 @@
 namespace Laraprego\Http\Controllers;
     
 use Auth;
-use Laraprego\File
+use Laraprego\File;
 use Laraprego\Task;
 use Laraprego\Project;
 use Illuminate\Http\Request;
