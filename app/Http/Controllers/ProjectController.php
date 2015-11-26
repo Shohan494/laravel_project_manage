@@ -3,6 +3,7 @@
 namespace Laraprego\Http\Controllers;
     
 use Auth;
+use Laraprego\File
 use Laraprego\Task;
 use Laraprego\Project;
 use Illuminate\Http\Request;
@@ -71,7 +72,8 @@ class ProjectController extends Controller
     {
         $project = Project::find($id);
         $tasks = $this->getTasks($id);
-        return view('projects.show')->withProject($project)->withTasks($tasks);
+        $files = $this->getFiles($id);
+        return view('projects.show')->withProject($project)->withTasks($tasks)->withFiles($files);
     }
 
     /**
@@ -132,6 +134,12 @@ public function destroy($id)
     {
         $tasks =  Task::project($id)->get();
         return $tasks;
+    }
+
+    public function getFiles($id)
+    {
+        $files =  File::project($id)->get();
+        return $files;
     }
 
 }

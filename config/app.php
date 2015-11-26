@@ -144,6 +144,7 @@ return [
         Laraprego\Providers\AuthServiceProvider::class,
         Laraprego\Providers\EventServiceProvider::class,
         Laraprego\Providers\RouteServiceProvider::class,
+        JD\Cloudder\CloudderServiceProvider::class,
 
     ],
 
@@ -193,6 +194,7 @@ return [
         'URL'       => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
+        'Cloudder'  => JD\Cloudder\Facades\Cloudder::class,
 
     ],
 

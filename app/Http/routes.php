@@ -66,3 +66,9 @@ Route::put('projects/{projects}/tasks/{tasks}', [
 Route::delete('projects/{projects}/tasks/{tasks}', [
     'uses' => 'ProjectTasksController@deleteOneProjectTask',
 ]);
+
+Route::post('projects/{projects}/files', [
+     'uses' => 'FilesController@uploadAttachments',
+     'as'   => 'projects.files',
+     'middleware' => ['auth']
+]);
