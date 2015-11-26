@@ -5,7 +5,12 @@
     @if($comments)
            @foreach( $comments as $comment)
                 <div>
-                    <div><i class="fa fa-check-square-o"></i> <span>{{ $comment->comments }}</span></div>
+                    <div><i class="fa fa-check-square-o"></i>
+                        <span>{{ $comment->comments }} by
+                        <span style="font-style: italic;color: #09f;">
+                        {{ isset($comment->user()->first()->username) ? 'You' : $comment->user()->first()->username }}
+                        </span>
+                    </span></div>
                     <a href={{url("/projects/$project->id/comments/$comment->id/edit")}}>Edit</a>
                     <button class="btn btn-danger delete pull-right"
                       data-action={{url("/projects/$project->id/comments/$comment->id")}}
