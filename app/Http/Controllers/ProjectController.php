@@ -6,6 +6,7 @@ use Auth;
 use Laraprego\File;
 use Laraprego\Task;
 use Laraprego\Project;
+use Laraprego\Comment;
 use Illuminate\Http\Request;
 
 use Laraprego\Http\Requests;
@@ -140,6 +141,17 @@ public function destroy($id)
     {
         $files =  File::project($id)->get();
         return $files;
+    }
+
+    /**
+     * Get all the comments that were made on a Project
+     * @param  integer $id
+     * @return collection
+     */
+    public function getComments($id)
+    {
+        $comments = Comment::project($id)->get();
+        return $comments;
     }
 
 }
