@@ -4,7 +4,6 @@
  
 @include('layouts.partials.sidebar')
 <div class="col-sm-9 col-md-10 main">
-    @include('layouts.partials.alerts')
     @if( $project )
     <h1 class="page-header">
         {!! $project->project_name !!}
@@ -18,7 +17,7 @@
               <p>Tasks: 0</p>
               <p>Comments: 0</p>
               <p>Attachments: 0</p>
-              <p><a href="#">Edit</a></p>
+              <p><a href={{url("/projects/$project->id/edit")}}>Edit</a></p>
               <p><a href="#">Delete</a></p>
             </div>
         </div>
