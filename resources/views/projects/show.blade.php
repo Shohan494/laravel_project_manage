@@ -24,6 +24,7 @@
                     <i class="fa fa-trash-o"></i>Delete
                   </button>
             </div>
+            @include('collaborators.form')
         </div>
         <hr>
         <div class="row">
