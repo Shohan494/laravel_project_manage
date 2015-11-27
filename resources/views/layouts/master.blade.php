@@ -5,6 +5,13 @@
     <title>Prego - Project Management App</title>
     <meta name="description" content="Prego is a project management app built for learning purposes">
     <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
+
+    <script src="{{ asset('js/jquery.atwho.js') }}"></script>
+    <script src="{{ asset('js/jquery.caret.js') }}"></script>
+ 
+    <link rel="stylesheet" href="{{ asset('css/jquery.atwho.min.css') }}">
+    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
     <script src="{{ asset('js/app.js') }}"></script>
  
@@ -18,6 +25,8 @@
     <div class="container">
         @include('layouts.partials.alerts')
         @yield('content')
+
+        @include('mentions::assets')
     </div>
 </body>
 </html>
