@@ -38,7 +38,7 @@ class ProjectCommentsController extends Controller
  
         return view('comments.edit')->withComment($comment)->with('projectId', $projectId);
     }
-      
+
    /**
      * Update One Project Comment
      * @param  Request $request
@@ -57,5 +57,20 @@ class ProjectCommentsController extends Controller
                 ->update(['comments' => $request->input('comments')]);
  
         return redirect()->back()->with('info','Your Comment has been updated successfully');
+    }
+
+       /**
+     * Delete One Project Comment
+     * @param  int $projectId
+     * @param  int $commentId
+     * @return view
+     */
+    public function deleteOneProjectComment($projectId, $commentId)
+    {
+        Comment::where('project_id', $projectId)
+                ->where('id', $commentId)
+                ->delete();
+ 
+        return redirect()->route('projects.show')->with('info', 'Comment deleted successfully');
     }
 }

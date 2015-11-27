@@ -88,3 +88,7 @@ Route::get('projects/{projects}/comments/{comments}/edit', [
 Route::put('projects/{projects}/comments/{comments}', [
     'uses' => 'ProjectCommentsController@updateOneProjectComment',
 ]);
+
+Route::delete('projects/{projects}/comments/{comments}', [
+    'uses' => 'ProjectCommentsController@deleteOneProjectComment',
+]);

@@ -1,3 +1,4 @@
+<div class="col-md-5">
 <h4 class="page-header">
     Comments
 </h4>
@@ -7,10 +8,11 @@
                 <div>
                     <div><i class="fa fa-check-square-o"></i>
                         <span>{{ $comment->comments }} by
-                        <span style="font-style: italic;color: #09f;">
-                        {{ isset($comment->user()->first()->username) ? 'You' : $comment->user()->first()->username }}
+                            <span style="font-style: italic;color: #09f;">
+                            {{ isset($comment->user()->first()->username) ? 'You' : $comment->user()->first()->username }}
+                            </span>
                         </span>
-                    </span></div>
+                    </div>
                     <a href={{url("/projects/$project->id/comments/$comment->id/edit")}}>Edit</a>
                     <button class="btn btn-danger delete pull-right"
                       data-action={{url("/projects/$project->id/comments/$comment->id")}}
@@ -34,4 +36,5 @@
         </div>
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
     </form>
+</div>
 </div>
