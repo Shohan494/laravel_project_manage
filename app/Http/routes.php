@@ -79,3 +79,12 @@ Route::post('projects/{projects}/comments', [
     'as'   => 'projects.comments.create',
     'middleware' => ['auth']
 ]);
+
+Route::get('projects/{projects}/comments/{comments}/edit', [
+    'uses' => 'ProjectCommentsController@getOneProjectComment',
+    'as' => 'projects.comments'
+]);
+
+Route::put('projects/{projects}/comments/{comments}', [
+    'uses' => 'ProjectCommentsController@updateOneProjectComment',
+]);
