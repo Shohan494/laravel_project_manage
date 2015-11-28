@@ -2,6 +2,7 @@
 
 namespace Laraprego;
 
+use Laraprego\User;
 use Illuminate\Database\Eloquent\Model;
  
 class Collaboration extends Model

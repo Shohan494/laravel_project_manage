@@ -2,13 +2,15 @@
 
 namespace Laraprego\Http\Controllers;
     
+use Illuminate\Http\Request;
+
 use Auth;
-use Laraprego\Collaboration;
+
 use Laraprego\File;
 use Laraprego\Task;
 use Laraprego\Project;
 use Laraprego\Comment;
-use Illuminate\Http\Request;
+use Laraprego\Collaboration;
 
 use Laraprego\Http\Requests;
 use Laraprego\Http\Controllers\Controller;
