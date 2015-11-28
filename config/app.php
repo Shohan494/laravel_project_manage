@@ -147,6 +147,8 @@ return [
         Laraprego\Providers\EventServiceProvider::class,
         Laraprego\Providers\RouteServiceProvider::class,
         JD\Cloudder\CloudderServiceProvider::class,
+        Unicodeveloper\Mention\MentionServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class,
 
     ],
 
