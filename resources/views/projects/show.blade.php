@@ -4,7 +4,6 @@
 
 @include('layouts.partials.sidebar')
 <div class="col-sm-9 col-md-10 main">
-    @include('layouts.partials.alerts')
     @if( $project )
     <h1 class="page-header">
         {!! $project->project_name !!}
