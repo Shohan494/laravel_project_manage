@@ -3,6 +3,7 @@
 namespace Laraprego\Http\Controllers;
     
 use Auth;
+use Laraprego\Collaboration;
 use Laraprego\File;
 use Laraprego\Task;
 use Laraprego\Project;
@@ -67,18 +68,22 @@ class ProjectController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function show($id)
     {
-        $project  = Project::find($id);
-        $tasks    = $this->getTasks($id);
-        $files    = $this->getFiles($id);
-        $comments = $this->getComments($id);
- 
-        return view('projects.show')->withProject($project)->withTasks($tasks)->withFiles($files)->withComments($comments);
+        $project       = Project::find($id);
+        $tasks         = $this->getTasks($id);
+        $files         = $this->getFiles($id);
+        $comments      = $this->getComments($id);
+        $collaborators = $this->getCollaborators($id);
+        return view('projects.show')
+                            ->withProject($project)
+                            ->withTasks($tasks)
+                            ->withFiles($files)
+                            ->withComments($comments)
+                            ->withCollaborators($collaborators);
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -154,6 +159,17 @@ public function destroy($id)
     {
         $comments = Comment::project($id)->get();
         return $comments;
+    }
+
+        /**
+     * Get all the collaborators on this project
+     * @param  int $id 
+     * @return collection
+     */
+    public function getCollaborators($id)
+    {
+        $collaborators = Collaboration::project($id)->get();
+        return $collaborators;
     }
 
 }
